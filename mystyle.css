@@ -67,6 +67,7 @@
     display: inline;
     float: right;
     font-size: 18px;
+    font-family: 'Alegreya', serif;
   }
   
   .nav > .nav-links > a {
