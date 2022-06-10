@@ -44,8 +44,6 @@
     font-weight:400;     
   }
 
-
-
   .front-page-content a {
     color: #000000;
     text-decoration: none;
@@ -59,6 +57,19 @@
     background-position: 0px 100%;
     background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), #00999959 calc(50% - 9px), #00999959 100%);
   }
+
+ .footing {
+    padding: .1px;
+    padding-left:7.5%;
+    padding-right:7.5%;
+    font-family: 'Lexend', sans-serif; 
+    font-weight:400;
+    text-align:center;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.596);
+    font-size:13px;
+ }
+
 
   /* .footing {
     background-color: black;
@@ -103,7 +114,7 @@
   .front-page a {
     color:black;
     padding:7.5px;
-    background-color: rgb(255, 204, 0);
+    background-color: #ffcc00;
     border-radius: 7.5px;
     font-weight: 600;
     text-decoration: none;
