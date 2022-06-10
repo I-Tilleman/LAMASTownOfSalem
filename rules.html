@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600&family=Berkshire+Swash&family=El+Messiri:wght@500;600&family=Lexend:wght@300;400&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="mystyle.css">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
 </head>
 
@@ -32,12 +33,72 @@
           <a href="model.html" target="_self">Model</a>
           <a href="knowledge.html" target="_self">Knowledge</a>
           <a href="rules.html" target="_self">Rules</a>
+          <a href="progress.html" target="_self">Progress</a>
           <a href="https://github.com/DarkPr0digy/TownOfSalemLAMAS" target="_blank">Code</a>
         </div>
       </div>
       
       <div class="front-page-content">
-        <h2>Work in progress... </h2>
+        <h2>General Inference Rules</h2>
+        <ol>
+          <li>If there are <i>n</i> other players and you know of <i>n-1</i> of the players that they are not Mafia then the player of whom you do not know whether they are Mafia is Mafia.</li>
+        </ol>
+
+        <h2>Role-Specific Inference Rules</h2>
+
+        <div class="title-icon-container">
+          <img src="assets/lookout_icon.webp" alt="Lookout icon">
+          <div class="text-container">
+            <h3>Lookout</h3>
+          </div>
+        </div>
+
+        <p>
+        <ol>
+          <li>If you see that players visit <i>x</i> and <i>x</i> is dead, one of the players that visited <i>x</i> is mafia and none are a doctor.</li>
+          <li>If you see that players visit <i>x</i> and no one is dead, one of the players that visited <i>x</i> was mafia and one was a doctor.</li>
+          <li>If you see that players visit <i>x</i> and <i>y</i> dies then the players visiting <i>x</i> were not mafia.</li>
+        </ol>
+        </p>
+
+        <div class="title-icon-container">
+          <img src="assets/doctor_icon.webp" alt="Doctor icon">
+          <div class="text-container">
+            <h3>Doctor</h3>
+          </div>
+        </div>
+        <p>
+        <ol>
+          <li>
+            If there is no veteran in the game and you got the message that you succesfully healed <i>x</i>, you know that <i>x</i> is not mafia. 
+          </li>
+        </ol>
+        </p>
+
+        <div class="title-icon-container">
+          <img src="assets/escort_icon.webp" alt="Escort icon">
+          <div class="text-container">
+            <h3>Escort</h3>
+          </div>
+        </div>
+        <ol>
+          <li>If the doctor is not in the game and there is no death, the player <i>x</i> who you distracted is the godfather. </li>
+          <li>If there is no veteran and there is a death or if the veteran died, the player <i>x</i> who you distracted is not mafia.</li>
+        </ol>
+
+        <div class="title-icon-container">
+          <img src="assets/godfather_icon.webp" alt="Godfather icon">
+          <div class="text-container">
+            <h3>Godfather</h3>
+        </div>
+        <p>
+          <ol>
+            <li>
+              If you receive the message that you got attacked and were healed during the night, you know that the player <i>x</i> who you attacked during the night is the veteran. 
+            </li>
+          </ol>
+        </p>
+
       </div>
 </body>
 </html>

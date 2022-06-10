@@ -16,12 +16,48 @@
     font-family:'Alegreya', serif;
   }
 
+  h3 {
+    font-family:'Alegreya', serif;
+  }
+
+  .image-container{
+    float:left;
+    padding-right:15px;
+    width:65px;
+  }
+  .text-container{
+    display:inline;
+
+  }
+
+  .title-icon-container img {
+    float:left;
+    width:30px;
+    margin-right:10px;
+  }
+
   .front-page-content {
     padding: 10px;
     padding-left:7.5%;
     padding-right:7.5%;
     font-family: 'Lexend', sans-serif; 
     font-weight:400;     
+  }
+
+
+
+  .front-page-content a {
+    color: #000000;
+    text-decoration: none;
+    padding: 2px 0px 1px;
+    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), #00999959 calc(50% - 9px), #00999959 100%);    
+    background-size: 100% 200%;
+    transition: background-position 120ms ease-in-out 0s, padding 120ms ease-in-out 0s;
+  }
+
+  .front-page-content a:hover {
+    background-position: 0px 100%;
+    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), #00999959 calc(50% - 9px), #00999959 100%);
   }
 
   /* .footing {
