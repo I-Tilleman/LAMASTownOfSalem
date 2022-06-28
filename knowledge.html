@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>LAMAS Town Of Salem - Knowledge</title>
+<title>Model | LAMAS Town Of Salem</title>
 <meta name="description" content="Project page for the course LAMAS at the University of Groningen">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +30,8 @@
         
         <div class="nav-links">
           <a href="index.html" target="_self">Introduction</a>
-          <a href="model.html" target="_self">Model</a>
-          <a href="knowledge.html" target="_self">Knowledge</a>
+          <a href="model.html" target="_self">The Game</a>
+          <a style="background-color:#ffcc00;color:black;box-shadow:0.5px 1px 1px rgba(0, 0, 0, 0.304);" href="knowledge.html" target="_self">Model</a>
           <a href="rules.html" target="_self">Rules</a>
           <a href="progress.html" target="_self">Progress</a>
           <a href="https://github.com/DarkPr0digy/TownOfSalemLAMAS" target="_blank">Code</a>
@@ -39,11 +39,43 @@
       </div>
       
       <div class="front-page-content">
-        <h2>Simplification</h2>
-        <p> The game we are modeling is quite complex in terms of information and knowledge. In theory, we could model the agents' knowledge of the roles of agents and of the actions of agents during the night. This further complicated by the important roles that belief and lying play in this game. We have decided to only model the agents' knowledge of the roles of agents and we have restricted the sharing of information to only be truthful. This, on top of our game model simplifications, greatly reduce the complexity of modeling the knowledge of agents in the game to a point where we believe it to be realistic for us to model. </p>
+        <h1>Model</h1>
+        <h2>Formal Model of the Game</h2>
+        <p>The formal model of the game is defined as follows:</p>
+        <ul>
+          <li>The set of agents <i>A</i>, where <i>A = {A1, A2, A3, A4, A5}</i></li>
+          <li>The set of roles <i>R</i>, where <i>R = {LO, Vet, Doc, GF, May}</i></li>
+          <li>The set of nights <i>N</i>, where <i>N = {1, 2, .., 30}</i></li>
+          <li>The Kripke structure &#x1D544; for the game Town of Salem. &#x1D544; is a tuple
+            <i>⟨S, &#x03C0;, R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub>, R<sub>4</sub>, R<sub>5</sub>⟩ where:</i></li>
+            <ul>
+              <li><i>S is a non-empty set of worlds.s</i></li>
+              <li>&#x03C0; is the truth assignment to the propositional atoms per state; &#x03C0;: <i>S &rarr; (<b>P</b> &rarr; {T,F}).</i></li>
+              <li><i>R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub>, R<sub>4</sub>, and R<sub>5</sub></i> are the accessibility relations for every agent <i>a &isin; A</i></li>
+            </ul>
+        </ul>
+
+        <h2>Knowledge</h2>
+        <p>Agents can obtain 4 different facts about agents and their actions. The first
+          type of fact is about the role of an agent. The second and third type of fact are about the behaviour of the agents and the fourth type of fact is about an agent
+          being killed. Each fact will be discussed in more detail below.</p>
+
+        <ol>
+          <li>The first type of fact is about the role an agent has. It is represented in the following way: <i>Ax_role</i>, e.g. <i>A1_LOO</i> means that agent <i>A1</i> has the 'lookout' role. </li>
+          <li>The second type of fact is about an agent visiting another agent. Only the lookout, the godfather and the doctor can visit other agents at night. Facts about agents visiting visiting other agents are represented in the following way: <i>AxV Ay_Nn</i> where <i>x &ne; y</i>, e.g. <i>A1V A3_N1</i> means that agent A1 visited A3 during night 1. </li>
+          <li>The third type of fact is about the doctor healing someone. When the doctor heals an agent that was attacked, they receive a message stating that their target was attacked but that they saved them. The fact is represented in the following way: <i>AxH Ay_Nn</i> where <i>x &ne; y</i> and <i>Ax_Doc.</i> For example, <i>A1H A3_N2</i> means that agent <i>A1</i> (who is the doctor) healed agent <i>A3</i> on night 2.</li>
+          <li>The last fact is about an agent dying during the night. The fact is represented in the following way: <i>xD_Nn_role</i> where <i>x &ne; y</i>, e.g. <i>2D_N3_GFR</i> means that agent <i>A2</i> was killed by the godfather during night 3. Because only the godfather and the veteran can kill, <i>role</i> can only be <i>GFR</i> or <i>Vet</i>. </li>
+        </ol>
+
+        <h2>Axioms</h2>
+        <p>The axioms are the main way that the agents can infer and obtain knowledge.
+          The axioms correspond to certain situations in the game where the agents can infer which roles other agents can or cannot have. There are 3 general axioms
+          that every agent can use, 4 axioms that only the lookout can use and 1 axiom
+          that only the doctor can use.</p>
+      
       </div>
 
-      <div class="footing" style="bottom:0;position:fixed;width:100%;">
+      <div class="footing">
         <p>Group 03 <br> Isabelle Tilleman (s3656586), Tumi Moeng (s4813405), Stijn de Vries (s3447146)</p>
       </div>
 
