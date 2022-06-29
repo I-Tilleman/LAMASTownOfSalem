@@ -62,8 +62,11 @@
 
         <ol>
           <li>The first type of fact is about the role an agent has. It is represented in the following way: <i>Ax_role</i>, e.g. <i>A1_LOO</i> means that agent <i>A1</i> has the 'lookout' role. </li>
+          <br>
           <li>The second type of fact is about an agent visiting another agent. Only the lookout, the godfather and the doctor can visit other agents at night. Facts about agents visiting visiting other agents are represented in the following way: <i>AxV Ay_Nn</i> where <i>x &ne; y</i>, e.g. <i>A1V A3_N1</i> means that agent A1 visited A3 during night 1. </li>
+          <br>
           <li>The third type of fact is about the doctor healing someone. When the doctor heals an agent that was attacked, they receive a message stating that their target was attacked but that they saved them. The fact is represented in the following way: <i>AxH Ay_Nn</i> where <i>x &ne; y</i> and <i>Ax_Doc.</i> For example, <i>A1H A3_N2</i> means that agent <i>A1</i> (who is the doctor) healed agent <i>A3</i> on night 2.</li>
+          <br>
           <li>The last fact is about an agent dying during the night. The fact is represented in the following way: <i>xD_Nn_role</i> where <i>x &ne; y</i>, e.g. <i>2D_N3_GFR</i> means that agent <i>A2</i> was killed by the godfather during night 3. Because only the godfather and the veteran can kill, <i>role</i> can only be <i>GFR</i> or <i>Vet</i>. </li>
         </ol>
 
@@ -72,6 +75,45 @@
           The axioms correspond to certain situations in the game where the agents can infer which roles other agents can or cannot have. There are 3 general axioms
           that every agent can use, 4 axioms that only the lookout can use and 1 axiom
           that only the doctor can use.</p>
+
+        <h3>General Axioms</h3>
+        <ol>
+          <li>
+            The first axiom states that if I know some agent has some role, different agents cannot have that same role. Formally: <br>
+            For all <i>s &isin; S</i> and Kripke structure &#x1D544;, for some <i>x,y &isin; A</i>, all <i>z &isin; A</i> and some role <i>r &isin; R</i> with <i>z &ne; y;</i> (&#x1D544; <i>,s</i>) &#x22A8; <i>K<sub>x</sub>Ay_r</i> &rarr; <i>K<sub>x</sub></i>&not;<i>Az_r</i>.
+          </li>
+          <br>
+          <li>
+            A. Axiom 2A states that if I know 4 different agents do not have a certain role, by process of elimination, the fifth (and last) agent has that role.
+            Formally: <br>
+            For all <i>s &isin; S</i> and Kripke structure &#x1D544;, for some <i>x, y &isin; A</i>, all <i>z &isin; A</i> with <i>z &ne; y</i> and some role <i>r &isin; R:</i> (&#x1D544;, <i>s</i>)  &#x22A8; <i>K<sub>x</sub></i>&not;<i>Az_r</i> &rarr; <i>K<sub>x</sub>Ay_r</i>.
+          </li>
+          <br>
+          <li value="2"> B.
+            Axiom 2b states that if I know some agent does not have 4 of the roles, by process of elimination, it must have the last remaining role. Formally: <br>
+            For some <i>s &isin; S</i> and Kripke structure &#x1D544;, for some <i>x &isin; A</i>, for some <i>r &isin; R</i> and all <i>l &isin; R</i> with <i>r &ne; l</i> : (&#x1D544;, <i>s</i>) &#x22A8; <i>K<sub>x</sub></i>&not;<i>As_l</i> &rarr; <i>K<sub>x</sub>As_r</i>.
+          </li>
+        </ol>
+
+        <div class="title-icon-container">
+          <img src="assets/lookout_icon.webp" alt="Lookout icon">
+          <div class="text-container">
+            <h3>Lookout</h3>
+          </div>
+        </div>
+
+        <p>
+        <ol>
+          <li value="3">Axiom 3, only used by the lookout, states that if some agent is visited by two other agents, all the agents that did not visit are not the godfather or the doctor, since those are the only roles that can visit other agents. Formally: <br>
+          For all <i>s &isin; S</i> and Kripke structure  &#x1D544;, for <i>u, v, w, x, y &isin; A</i> with <i>u &ne; v &ne; w &ne; x &ne; y</i> and some <i>n &isin; N:</i> (&#x1D544;, <i>s</i>) &#x22A8; <i>K<sub>u</sub> (Au_LOO &#x2227; AvV Ax_Nn &#x2227; AwV Ax_Nn) &rarr; K<sub>u</sub> (&not;Ax_GFR &#x2227; &not;Ax_Doc &#x2227; &not; AyGFR &#x2227; &not;Ay_Doc</i> ).</li>
+          <br>
+          <li>
+            Axiom 4, only used by the lookout, states that if some agent was visited by another agent, the visiting agent is not the veteran or the mayor. Formally: <br>
+            For all <i>s ∈ S</i> and Kripke structure &#x1D544;, for some <i>u, x, y ∈ A</i> with u &ne; x &ne; y and some <i>n ∈ N</i> : (&#x1D544;, <i>s</i>) ⊨ <i>K<sub>u</sub> (Au_LOO ∧ AxV Ay_Nn) → Ku(¬Ax_Vet ∧ ¬Ax_May)</i>.
+
+          </li>
+        </ol>
+        </p>
       
       </div>
 
