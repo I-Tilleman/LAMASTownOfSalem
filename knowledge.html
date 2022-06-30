@@ -90,7 +90,7 @@
           </li>
           <br>
           <li value="2"> B.
-            Axiom 2b states that if I know some agent does not have 4 of the roles, by process of elimination, it must have the last remaining role. Formally: <br>
+            Axiom 2B states that if I know some agent does not have 4 of the roles, by process of elimination, it must have the last remaining role. Formally: <br>
             For some <i>s &isin; S</i> and Kripke structure &#x1D544;, for some <i>x &isin; A</i>, for some <i>r &isin; R</i> and all <i>l &isin; R</i> with <i>r &ne; l</i> : (&#x1D544;, <i>s</i>) &#x22A8; <i>K<sub>x</sub></i>&not;<i>As_l</i> &rarr; <i>K<sub>x</sub>As_r</i>.
           </li>
         </ol>
@@ -109,12 +109,37 @@
           <br>
           <li>
             Axiom 4, only used by the lookout, states that if some agent was visited by another agent, the visiting agent is not the veteran or the mayor. Formally: <br>
-            For all <i>s ∈ S</i> and Kripke structure &#x1D544;, for some <i>u, x, y ∈ A</i> with u &ne; x &ne; y and some <i>n ∈ N</i> : (&#x1D544;, <i>s</i>) ⊨ <i>K<sub>u</sub> (Au_LOO ∧ AxV Ay_Nn) → Ku(¬Ax_Vet ∧ ¬Ax_May)</i>.
+            For all <i>s ∈ S</i> and Kripke structure &#x1D544;, for some <i>u, x, y ∈ A</i> with <i>u &ne; x &ne; y</i> and some <i>n ∈ N</i> : (&#x1D544;, <i>s</i>) ⊨ <i>K<sub>u</sub> (Au_LOO ∧ AxV Ay_Nn) → Ku(¬Ax_Vet ∧ ¬Ax_May)</i>.
 
+          </li>
+          <br>
+          <li>
+            Axiom 5, only used by the lookout, states that if some agent was visited by only 1 other agent, and the visited agent was killed by the godfather in the same night, the visiting agent is the godfather. Formally: <br>
+            For all <i>s ∈ S</i> and Kripke structure &#x1D544;, for some <i>u, v, x ∈ A</i> and all <i>w ∈ A</i> where <i>v &ne; x &ne; w</i> and some <i>n ∈ N</i>: (&#x1D544;, <i>s</i>) ⊨ <i>K<sub>u</sub> (Au_LOO ∧ AvV Ax_Nn ∧ ¬AwV Ax_Nn ∧ xD_Nn_GFR) → Av_GFR</i>.
+          </li>
+          <br>
+          <li>
+            Axiom 6, only used by the lookout, if some agent (agent 1) was visited by some other agent (agent 2), and still some other agent (agent 3) was killed by the godfather in the same night, then the last remaining agent apart from the lookout (which is the current reasoning agent) is the godfather. Formally: <br>
+            For all <i>s ∈ S</i> and Kripke structure &#x1D544;, for some <i>u, w, x, y, z ∈ A</i> with <i>u &ne; w &ne; x &ne; y &ne; z</i> and some <i>n ∈ N</i> : (&#x1D544;, <i>s</i>) ⊨ K<sub>u</sub> (Au_LOO ∧ AxV Ay_Nn ∧ zD_Nn_GFR) → K<sub>u</sub>(Aw_GFR ∧ Ay_Doc).
           </li>
         </ol>
         </p>
       
+        <div class="title-icon-container">
+          <img src="assets/doctor_icon.webp" alt="Doctor icon">
+          <div class="text-container">
+            <h3>Doctor</h3>
+          </div>
+        </div>
+        <p>
+        <ol>
+          <li value="7">
+            Axiom 7, only used by the doctor, states that if the veteran has died before the current night, and the doctor healed (successfully saved) its target, the doctor can infer that its target is not the godfather. Formally: <br>
+            For all <i>s ∈ S</i> and kripke structure &#x1D544;, for some <i>x, y, z ∈ A</i> where <i>x &ne; y &ne; z</i>, and for some <i>n, m ∈ N</i> where <i>m&lt;n</i> : (&#x1D544;, <i>s</i>) ⊨ K<sub>x</sub>(Ax_Doc ∧ AxH Ay_Nn ∧ zD_Nm_GFR ∧ Az_Vet) → K<sub>x</sub>¬Ax_GFR
+
+          </li>
+        </ol>
+        </p>
       </div>
 
       <div class="footing">
