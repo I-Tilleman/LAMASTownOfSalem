@@ -42,7 +42,7 @@
       <div class="front-page-content">
         <h1>Results</h1>
 
-        <p>To look at the impact that the axioms have on the winrates, a 1000 games were run where the agents were able to use the axioms, and a 1000 games were run where the agents were able to use the axioms. <a href="#tab-1">Table 1</a> shows the average win rates for the town and the mafia factions with and without the agents using the axioms to make inferences. Without using axioms, the mafia obtained the highest winrate of 57.3%. With using axioms, the town obtained the highest winrate of 70.1%.</p>
+        <p>To look at the impact that the axioms have on the winrates, a 1000 games were run where the agents were able to use the axioms, and a 1000 games were run where the agents were able to use the axioms. <a href="#tab-1">Table 1</a> shows the average win rates for the town and the mafia factions with and without the agents using the axioms to make inferences. Without using axioms, the mafia obtained the highest winrate of 56.4%. With using axioms, the town obtained the highest winrate of 67.6%.</p>
 
         <table id="tab-1" class="tg">
           <caption>Table 1: The win rates of the town and mafia factions over 1000 runs, using axioms and not using axioms.</caption>
@@ -56,13 +56,13 @@
           <tbody>
             <tr>
               <td class="tg-0pky">Town wins</td>
-              <td class="tg-0pky"><b>70.1%</b></td>
-              <td class="tg-0pky">42.7%</td>
+              <td class="tg-0pky"><b>67.6%</b></td>
+              <td class="tg-0pky">43.6%</td>
             </tr>
             <tr>
               <td class="tg-0pky">Mafia wins</td>
-              <td class="tg-0pky">29.9%</td>
-              <td class="tg-0pky"><b>57.3%</b></td>
+              <td class="tg-0pky">32.4%</td>
+              <td class="tg-0pky"><b>56.4%</b></td>
             </tr>
           </tbody>
           </table>
@@ -100,27 +100,42 @@
             </tbody>
             </table>
 
-            <p>Figure 3 and 4 show the average amount of worlds per day. Figure 1 and 2 show the average amount knowledge that each agent has per day. Overall, the lookout/godfather has the most knowledge and the mayor has the least.</p>
+            
 
-            <figure>
-              <img class="fig-img" src="assets/knowl_1000_no_rsn.png">
+            <p><a href="#fig-3">Figure 3</a> and <a href="#fig-4">Figure 4</a> show the average amount of worlds per day. <a href="#fig-1">Figure 1</a> and <a href="#fig-2">Figure 2</a> show the average amount knowledge that each agent has per day. Overall, the lookout/godfather has the most knowledge and the mayor has the least.</p>
+
+            <div class="row">
+              
+            <div class="column">
+            <figure id="fig-1">
+              <img class="fig-img" src="assets/knowlede_pd_w_axioms.png">
               <figcaption>Figure 1: The amount of knowledge the agents had on average for each day, when agents were not using axioms to obtain more information.</figcaption>
             </figure>
+          </div>
 
-            <figure>
-              <img class="fig-img" src="assets/knowl_1000_rsn.png">
+          <div class="column">
+            <figure id="fig-2">
+              <img class="fig-img" src="assets/knowlede_pd_without_axioms.png">
               <figcaption>Figure 2: The amount of knowledge the agents had on average for each day, when agents were not using axioms to obtain more information.</figcaption>
             </figure>
-
-            <figure>
-              <img class="fig-img" src="assets/worlds_1000_no_rsn.png">
+          </div>
+          </div>
+          <div class="row">
+          <div class="column">
+            <figure id="fig-3">
+              <img class="fig-img" src="assets/worlds_pd_w_axioms.png">
               <figcaption>Figure 3: The amount of worlds that were considered possible by any agent, when agents were using axioms to obtain more information.</figcaption>
             </figure>
+          </div>
 
-            <figure>
-              <img class="fig-img" src="assets/worlds_1000_rsn.png">
+          <div class="column">
+            <figure id="fig-4">
+              <img class="fig-img" src="assets/worlds_pd_without_axioms.png">
               <figcaption>Figure 4: The amount of worlds that were considered possible by any agent, when agents were not using axioms to obtain more information.</figcaption>
             </figure>
+          </div>
+        </div>
+          </div>
 
 
 
