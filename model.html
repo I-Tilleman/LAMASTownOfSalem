@@ -32,7 +32,7 @@
           <a href="index.html" target="_self">Introduction</a>
           <a style="background-color:#ffcc00;color:black;box-shadow:0.5px 1px 1px rgba(0, 0, 0, 0.304);" href="model.html" target="_self">The Game</a>
           <a href="knowledge.html" target="_self">Model</a>
-          <a href="rules.html" target="_self">Rules</a>
+          <a href="rules.html" target="_self">Results</a>
           <a href="progress.html" target="_self">Progress</a>
           <a href="https://github.com/DarkPr0digy/TownOfSalemLAMAS" target="_blank">Code</a>
         </div>
@@ -110,6 +110,17 @@
         <p>Next, there's a discussion period during which players can share information. They do so if they know other players know their role. Otherwise, they will not share information. During the discussion period, the Mayor can choose to reveal their role to other players regardless of the knowledge that other players have. </p>
 
         <p>During the voting period, each player can choose a another player to vote on. If a player gets the majority of the votes, meaning <i>(n/2)+1</i> where <i>n</i> is the number of players in the game, then this player is killed. After they are killed, their role is revealed and their last will is shown.</p>
+        
+        <h2>Implementation</h2>
+        <p>During the night routine, each agent gets to perform their action. Agents select their target for their ability due to some decision making process, which will be discussed in <a href="/knowledge.html#decision_making">"Decision Making"</a>. After all actions are selected, agents will receive any gained information from that night, for example, the lookout will obtain knowledge of other visiting agents if their target for that night was visited.</p>
+<p>
+        After each night, we check whether the game is finished, which is the case when either all town roles or all mafia roles are dead. If the game has not finished and someone was killed during the night, their role and last will will be revealed. Agents will then use their knowledge and the axioms to try and make inferences about the roles of the other agents. Afterwards, agents get to talk and vote. During talking, players can share information. After the discussion but before voting, the mayor gets an opportunity to reveal themselves. Then, after talking agents are again allowed to infer knowledge using the axioms. After this, the agents will vote. If there is a majority vote, the chosen agent will be lynched. If a player is lynched, their role and last will are again revealed. Otherwise, the day is over and the next night begins.
+        </p>
+        <p>
+        The game cycles between day and night until one of the factions, Town or Mafia, wins.</p>
+        <p>
+        Both the revealing of the role and last will when an agent dies, and the knowledge that agent decide to share during the talking phase are implemented as being public announcements. </p>
+      
       </div>
 
       <br>

@@ -49,14 +49,14 @@
     color: #000000;
     text-decoration: none;
     padding: 2px 0px 1px;
-    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), #00999959 calc(50% - 9px), #00999959 100%);    
+    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), #ffcc00 calc(50% - 9px), #ffcc00 100%);    
     background-size: 100% 200%;
     transition: background-position 120ms ease-in-out 0s, padding 120ms ease-in-out 0s;
   }
 
   .front-page-content a:hover {
     background-position: 0px 100%;
-    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), #00999959 calc(50% - 9px), #00999959 100%);
+    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), #ffcc00 calc(50% - 9px), #ffcc00 100%);
   }
 
  .footing {
@@ -70,6 +70,74 @@
     color: rgba(255, 255, 255, 0.596);
     font-size:13px;
  }
+
+ table {
+  caption-side:bottom;
+ }
+ caption {
+  padding-top:10px;
+  text-align:left;
+ }
+
+ figure {
+  width:600px;
+  margin: 25px 0;
+ }
+
+ .fig-img {
+  width:600px;
+ }
+
+  .tg  {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 600px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);
+    border-radius: 5px 5px 0 0;
+    overflow:hidden;
+  }
+  .tg td{
+    border-color:#ffcc00;
+    /* border-style:solid; */
+    /* border-width:2px; */
+    overflow:hidden;
+    padding:12px 15px;
+    word-break:normal;
+  }
+  .tg th{
+    border-color:#ffcc00;
+    background-color:#ffcc00;
+    /* border-style:solid; */
+    /* border-width:2px; */
+    overflow:hidden;
+    padding:10px 5px;
+    word-break:normal;
+    /* font-family: 'Alegreya', serif; */
+    /* font-size:17px; */
+    text-align:left;
+  }
+
+  .tg tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.tg tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tg tbody tr:last-of-type {
+    border-bottom: 2px solid #ffcc00;
+}
+
+  .tg .tg-uog8{
+    /* border-color:inherit; */
+    text-align:left;
+    text-decoration:underline;
+    vertical-align:top}
+  .tg .tg-0pky{
+    /* border-color:inherit; */
+    text-align:left;
+    vertical-align:top}
 
 
   /* .footing {
