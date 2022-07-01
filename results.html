@@ -30,16 +30,19 @@
         
         <div class="nav-links">
           <a href="index.html" target="_self">Introduction</a>
-          <a href="model.html" target="_self">The Game</a>
-          <a href="knowledge.html" target="_self">Model</a>
-          <a style="background-color:#ffcc00;color:black;box-shadow:0.5px 1px 1px rgba(0, 0, 0, 0.304);" href="rules.html" target="_self">Results</a>
-          <a href="progress.html" target="_self">Progress</a>
+          <a href="the-game.html" target="_self">The Game</a>
+          <a href="model.html" target="_self">Model</a>
+          <a href="decision-making.html" target="_self">Decision Making</a>
+          <a style="background-color:#ffcc00;color:black;box-shadow:0.5px 1px 1px rgba(0, 0, 0, 0.304);" href="results.html" target="_self">Results</a>
+          <a href="discussion.html" target="_self">Discussion</a>
           <a href="https://github.com/DarkPr0digy/TownOfSalemLAMAS" target="_blank">Code</a>
         </div>
       </div>
       
       <div class="front-page-content">
         <h1>Results</h1>
+
+        <p>To look at the impact that the axioms have on the winrates, a 1000 games were run where the agents were able to use the axioms, and a 1000 games were run where the agents were able to use the axioms. Table 1 shows the average win rates for the town and the mafia factions with and without the agents using the axioms to make inferences. Without using axioms, the mafia obtained the highest winrate of 57.3%. With using axioms, the town obtained the highest winrate of 70.1%.</p>
 
         <table class="tg">
           <caption>Table 1: The win rates of the town and mafia factions over 1000 runs, using axioms and not using axioms.</caption>
@@ -63,6 +66,8 @@
             </tr>
           </tbody>
           </table>
+
+          To look at the impact that each town member has on the win rate, a 1000 games for each town role were ran, where the godfather was told to kill that specific town member. Thus, for every game the first town member to be killed by the godfather would always be the same role. Table 2 shows the win rates for role which was targeted first. The town won the most games when the doctor was targeted first, with a win rate of 79.8%, and the mafia won the most games when the mayor was targeted first, with a win rate of 43.2%.
 
           <table class="tg">
             <caption>Table 2: The win rates of the town and mafia factions over a 1000 runs, when
@@ -94,6 +99,8 @@
               </tr>
             </tbody>
             </table>
+
+            <p>Figure 3 and 4 show the average amount of worlds per day. Figure 1 and 2 show the average amount knowledge that each agent has per day. Overall, the lookout/godfather has the most knowledge and the mayor has the least.</p>
 
             <figure>
               <img class="fig-img" src="assets/knowl_1000_no_rsn.png">

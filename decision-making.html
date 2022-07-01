@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Decision Making | LAMAS Town Of Salem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600&family=Berkshire+Swash&family=El+Messiri:wght@500;600&family=Lexend:wght@300;400&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="mystyle.css">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+</head>
+
+<body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Town of Salem
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="index.html" target="_self">Introduction</a>
+          <a href="the-game.html" target="_self">The Game</a>
+          <a href="model.html" target="_self">Model</a>
+          <a style="background-color:#ffcc00;color:black;box-shadow:0.5px 1px 1px rgba(0, 0, 0, 0.304);"  href="decision-making.html" target="_self">Decision Making</a>
+          <a href="results.html" target="_self">Results</a>
+          <a href="discussion.html" target="_self">Discussion</a>
+          <a href="https://github.com/DarkPr0digy/TownOfSalemLAMAS" target="_blank">Code</a>
+        </div>
+      </div>
+
+      <div class="front-page-content">
+        <h1>Decision-making</h1>
+        Agents will use the knowledge generated from actions they perform and perceive in game, as well as the knowledge they gain from making inferences based on the previously mentioned knowledge, in order to make decisions. Additionally agents are able to share information with one another, which also allows them to gain more information to inform their decision making. Each agent is motivated by their own reasoning and thus the way they make decisions is different. For example, the doctor is motivated to save the citizens of the Town and not the Mafia. In our game there are 4 overarching types of decisions to be made and we will outline them all here:
+
+        <h2>Who to use ability on</h2>
+        <p>The first important decision that occurs during the night concerns the Doctor, the Lookout and the Godfather. This is about upon whom each agent should use their unique ability. This section primarily concerns itself of the First-Order knowledge of each agent.</p>
+
+        <p>In the case of the Doctor, their ability is to save an agent that they visit from death. The incentive for the Doctor is to try and save the citizens of the Town from the Mafia. They make use of their knowledge of other agents and if they know that an agent is not the Mafia, then they add that agent to a list, and at the end of the process they choose a random agent from that list. If they do not have enough knowledge to determine that they know an agent is not the mafia, then they select an agent at random, and heal them.</p>
+
+        <p>In the case of the Lookout, their ability is to observe other agents and to see who visits them. The incentive for the Lookout is to gain as much information as possible and as such they want to try and observe agents that are not a part of the Mafia such that they can catch the Mafia in action. As before, they use their knowledge of an agent not being Mafia to add that agent to a list, and failing that they choose an agent at random to observe.</p>
+
+        <p>In the case of the Godfather, their ability is to kill an agent. Their incentive is to kill any member of the Town such that they can eventually win. They make use of their knowledge to make a list of any agent they know to be a citizen of the town and then they choose one of those agents to kill at random. Failing this they simply choose an agent at random and kill them.</p>
+
+        <h2>When to use ability</h2>
+        <p>The next important decision occurs during the night for the Veteran and during the day for the Mayor, and it is about when the agents decide to make use of their special abilities.</p>
+
+        <p>In the case of the Veteran, they are able to go active at night such that any agent that visits them will be killed. In this case we do not use knowledge and rather rely on probability. If the agent thinks, probabilistically speaking, that their life is in danger then they will go active. They do this by choosing a random value between 0 and 1, and then calculating a probability of death which is calculated by taking the number of living agents minus one, because the Godfather cannot kill themselves, and dividing one by that value. If the randomly chosen value is less than that they will go active otherwise they will not.</p>
+
+        <p>In the case of the Mayor, they are able to reveal themselves to all other agents as being the Mayor and then instead of having one vote, they are given 3 votes. This does however put them at increased risk of attack, and so they should only do it in certain circumstances. They use their First-Order knowledge of other agents, and if they are certain that an agent is the Godfather, then they will reveal themselves such that they can vote the Godfather out. If they are not certain then they will remain unrevealed.</p>
+
+        <h2>When to share knowledge</h2>
+        <p>The next decision occurs during the day and it concerns all agents barring the members of the Mafia. This is to do with the talking stage of the day in which agents are able to share their own knowledge with the other agents. This section makes use of the Second-Order knowledge of the agents, as it is concerned with what an agent knows other agents know about them. Implementationally this works the same way for all agents in that they determine, using the Kripke World Space, whether they know a given agent knows their true role. They do this for all agents still alive, and if at least one living agent knows their true role, then they share information. This is implemented in this way because if another agent knows their true rule then they know that at least that agent will trust information that they share. Functionally however we made it so all agents would then trust this information.</p>
+
+        <h2>Who to vote for</h2>
+        <p>The final decision concerns whom the agent will vote for and this concerns all agents. They make use of their First-Order knowledge to determine the roles of the other agents. If they are a member of the Town, they use their knowledge to see if they know that an agent is a member of the Mafia, and if they do they add that agent to a list, then they select an agent from that list randomly and vote for them. If they do not, they will abstain such as to avoid accidentally killing a member of the town. If they are a member of the Mafia, conversely they will use their knowledge to see if they know an agent is not a member of the Mafia and add that agent to a list and then select an agent from that list at random, and vote for them. Failing this they will also abstain to avoid arousing suspicion.</p>
+      </div>
+</body>
+</html>

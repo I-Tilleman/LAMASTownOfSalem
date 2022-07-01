@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+<head>
+<title>The Game | LAMAS Town Of Salem</title>
+<meta name="description" content="Project page for the course LAMAS at the University of Groningen">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600&family=Berkshire+Swash&family=El+Messiri:wght@500;600&family=Lexend:wght@300;400&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="mystyle.css">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+</head>
+
+<body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            <a href="index.html">Town of Salem</a>
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="index.html" target="_self">Introduction</a>
+          <a style="background-color:#ffcc00;color:black;box-shadow:0.5px 1px 1px rgba(0, 0, 0, 0.304);" href="the-game.html" target="_self">The Game</a>
+          <a href="model.html" target="_self">Model</a>
+          <a href="decision-making.html" target="_self">Decision Making</a>
+          <a href="results.html" target="_self">Results</a>
+          <a href="discussion.html" target="_self">Discussion</a>
+          <a href="https://github.com/DarkPr0digy/TownOfSalemLAMAS" target="_blank">Code</a>
+        </div>
+      </div>
+      
+      <div class="front-page-content">
+        <h1>The Game</h1>
+        <h2>Simplification</h2>
+        <p>As explained earlier, the original game is played with 8-12 players and contains over 40 different roles. In order to prevent an exploding complexity, especially when modeling knowledge, we decided to simplify the game. We reduced the number of players to 5 and predefined the roles which are in the game. </p>
+        
+        <p>We also simplified the gameplay. We omitted the small discussion period which players have before the start of a game and do not allow players to pick which roles are in the game. During the discussion period, we omitted whispering. All statements made by agents during the discussion period are public announcements. This also means that agents are not able to lie, and anything they say and know is true. We omitted the defense phase in full, which means that the majority vote directly decides who dies. The will of players contains the events in which they participated at night, their role, and any knowledge they gained. It cannot contain lies. </p>
+
+        <p>In reducing the number of roles, we decided to have 1 mafia role and 4 town roles. In the original game, the mafia consists of up to 4 plays and can consists of players with different kinds of roles, deception, support and killing roles. When the godfather and mafioso are both in the game, the godfather chooses who the mafioso will kill. In our simplified version, the mafia as a whole only consists of the godfather, which means the role of the godfather is simplified. </p>
+
+        <h2>Formalizing the game</h2>
+        <p>The first iteration contains 5 agents with 5 different roles. This means that at the start of the game, there are 5! = 120 kripke worlds in the model.</p>
+
+        <p>There roles belong to two different factions, Townies and Mafia. Townies are the "good" side of town, their goal is to <i>"lynch every criminal and evildoer"</i>.
+        Mafia are the primary enemy of the town, their goal is to <i>"kill anyone that will not submit to the mafia"</i>. </p>
+
+        <div class="icon-container">
+          <img class="image-container" src="assets/lookout_icon.webp">
+          <div class="text-container">
+            <p><b>The lookout</b> can go to someones house at night and see who visits them that night. The lookout will know which players visited the player but will not know the roles of the visiting players. This role is a Town role. The abbreviation for the lookout is 'LOO'.</p>
+          </div>
+        </div>
+        
+        <div class="icon-container">
+          <img class="image-container" src="assets/doctor_icon.webp">	
+          <div class="text-container">
+            <p><b>The doctor</b> is able to heal someone each night. If that player is attacked, the doctor saves this player. If the person the doctor chose to save was attacked that night, the doctor receives a message stating that their target was attacked last night. The doctor can also heal themselves, but only once. This role is a Town role. The abbreviation for the doctor is 'Doc'.</p>
+        </div>
+        </div>
+        
+        <div class="icon-container">
+          <img class="image-container" src="assets/veteran_icon.webp">
+          <div class="text-container">
+            <p><b>The veteran</b> can choose to go on alert during the night. If the veteran is on alert, anyone who visits the veteran that night will be shot by him and will be killed. The veteran can only use this ability twice. This role is a Town role. The abbreviation for the veteran is 'Vet'.</p>
+          </div>
+        </div>
+
+        <div class="icon-container">
+          <img class="image-container" src="assets/mayor_icon.webp">
+          <div class="text-container">
+            <p><b>The mayor</b> can choose to reveal themselves as the mayor. In doing so, their vote counts for three, but they cannot be healed by the doctor anymore. If the mayor does not reveal themselves, they are simply a regular player. This role is a Town role. The abbreviation for the mayor is 'May'.</p>
+          </div>
+        </div>
+
+        <div class="icon-container">
+          <img class="image-container" src="assets/godfather_icon.webp">
+          <div class="text-container">
+            <p><b>The godfather</b> kills one person each night. This role is a Mafia role. The abbreviation for the godfather is 'GFR'.</p>
+          </div>
+        </div>
+
+        <br>
+
+        <h2>Gameplay</h2>
+        <p>The version of the game that we implemented contains two phases, a night phase and a discussion and voting phase. These two phases alternate, and each new round starts with a night. This happens until one of the two factions wins.        </p>
+
+        <h3>Night</h3>
+        <p>Each round of the game starts with a night. During the night, players get to perform their role abilities:
+        </p>
+        <ul>
+          <li><b>The lookout</b> can choose which player to watch. At the end of the night, they will be shown which players visited the player they watched. </li>
+          <li><b>The doctor</b> can choose which player to heal. At the end of the night, they will receive a message if their target was attacked.</li>
+          <li><b>The veteran</b> can choose to go on alert. At the end of the night, they will receive a message if they shot someone who visited them.</li>
+          <li><b>The mayor</b> cannot do anything at night.</li>
+          <li><b>The godfather</b> can choose which player to kill.</li>
+        </ul>
+
+        <h3>Discussion & Voting</h3>
+        <p>Before the discussion phase starts, it is revealed which players died during the night. The last wills of the deceased players is shown. The last will contains the role of the deceased player, the events in which the player was involved, and the knowledge the player has gained.</p>
+
+        <p>Next, there's a discussion period during which players can share information. They do so if they know other players know their role. Otherwise, they will not share information. During the discussion period, the Mayor can choose to reveal their role to other players regardless of the knowledge that other players have. </p>
+
+        <p>During the voting period, each player can choose a another player to vote on. If a player gets the majority of the votes, meaning <i>(n/2)+1</i> where <i>n</i> is the number of players in the game, then this player is killed. After they are killed, their role is revealed and their last will is shown.</p>
+        
+        <h2>Implementation</h2>
+        <p>During the night routine, each agent gets to perform their action. Agents select their target for their ability due to some decision making process, which will be discussed in <a href="/decision-making.html">"Decision Making"</a>. After all actions are selected, agents will receive any gained information from that night, for example, the lookout will obtain knowledge of other visiting agents if their target for that night was visited.</p>
+<p>
+        After each night, we check whether the game is finished, which is the case when either all town roles or all mafia roles are dead. If the game has not finished and someone was killed during the night, their role and last will will be revealed. Agents will then use their knowledge and the axioms to try and make inferences about the roles of the other agents. Afterwards, agents get to talk and vote. During talking, players can share information. After the discussion but before voting, the mayor gets an opportunity to reveal themselves. Then, after talking agents are again allowed to infer knowledge using the axioms. After this, the agents will vote. If there is a majority vote, the chosen agent will be lynched. If a player is lynched, their role and last will are again revealed. Otherwise, the day is over and the next night begins.
+        </p>
+        <p>
+        The game cycles between day and night until one of the factions, Town or Mafia, wins.</p>
+        <p>
+        Both the revealing of the role and last will when an agent dies, and the knowledge that agent decide to share during the talking phase are implemented as being public announcements. </p>
+      
+      </div>
+
+      <br>
+
+      <div class="footing">
+        <p>Group 03 <br> Isabelle Tilleman (s3656586), Tumi Moeng (s4813405), Stijn de Vries (s3447146)</p>
+      </div>
+</body>
+</html>
+
