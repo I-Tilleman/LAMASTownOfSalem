@@ -282,6 +282,10 @@
     .fig-img {
       width:600px;
     }
+
+    figure {
+      width:600px;
+    }
   }
   @media (max-width:650px) {
 
