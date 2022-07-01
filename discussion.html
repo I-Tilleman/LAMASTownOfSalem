@@ -42,15 +42,33 @@
       <div class="front-page-content">
         <h1>Discussion</h1>
 
-        <p>In the results (link), we can see that using axioms has a positive effect on the win rate, going from 43% to 70%. We expect that the reason for this is that in a 1v1 situation, the mayor can deduct whether the opponent is the godfather and can thus vote it out and win. Without axioms, the mayor would not be able to perform this deduction. This means the town cannot vote the godfather out and would have to rely on the veteran to kill it, essentially relying on luck. </p>
+        <p>In the results, we can see that using axioms has a positive effect on the win rate, going from 43% to 70%. One reason for this is likely that in a 1v1 situation, the mayor can deduct whether the opponent is the godfather and can thus vote it out and win. Without axioms, the mayor would not be able to perform this deduction. This means the town cannot vote the godfather out and would have to rely on the veteran to kill it, essentially relying on luck.</p>
 
-        <p>We also find that mayor is a strong town role; if it is killed the win rate is 50/50. This is likely because if the mayor and left with the godfather, it knows the other player is the godfather. This means that the mayor always wins when it is 1v1, whereas other roles would likely lose. </p>
+        <p>We also find that mayor is a strong town role; if it is killed the win rate is 50/50. This is likely because if the mayor and left with the godfather, it knows the other player is the godfather. This means that the mayor always wins when it is 1v1, whereas other roles would likely lose.</p>
 
         <p>The lookout and veteran are considerably less strong. With their win rates being close to 2 to 1. The lookout has a lot of axioms, which can help it obtain a lot of information. The veteran does not have as much information, but it has a chance to kill the godfather. The downside of that, is that it can also kill the lookout and the doctor, which is counterproductive to the town. </p>
 
-        <p>The doctor is quite weak. This is likely because it can heal the godfather when the veteran would otherwise have killed the godfather, making the town lose when it could have won. Thus, like the veteran, this role has the risk of being counterproductive. Unlike the lookout and the mayor, which is likely why those roles are stronger. </p>
+        <p>We expected the lookout to be a positive influence because of its ability to infer information with its many axioms. However, the results show that the win rate is increases when the lookout is killed first as opposed to just a normal game. Thus, it seems that the lookout does not provide as much utility as expected.</p>
 
-        <p>Another reason for why the doctor dying first could lead to such a high win rate for the town could be that the lookout can gain a lot of information from the doctor being dead. If the doctor is dead, only one role can visit others, which means it is considerably easier to deduct which player is the godfather.</p>
+        <p>The doctor is quite weak. This is likely because it can heal the godfather when the veteran would otherwise have killed the godfather, making the town lose when it could have won. Thus, like the veteran, this role has the risk of being counterproductive. Unlike the lookout and the mayor, which is likely why those roles are stronger.</p>
+
+        <p>Another reason for why the doctor dying first could lead to such a high win rate for the town could be that the lookout can gain a lot of information from the doctor being dead. If the doctor is dead, only one role can visit others, which means it is considerably easier to deduct which player is the godfather. Furthermore, the doctor is not able to visit itself, meaning that if the lookout was watching the doctor, it would know instantly which agent the godfather was.</p>
+
+        <p><a href="/results.html#fig-1">Figure 1</a> and <a href="/results.html#fig-2">Figure 2</a> show that the lookout is able to obtain the most information out of all the town roles, which is to be expected because it has the most axioms to work with. However, as mentioned before, it seems the information is not very important as the win rate for the town when the lookout is killed first is still decent with 71.9%. This indicates that the information obtained by the lookout is only useful in a handful of cases.</p>
+
+        <p>Furthermore, <a href="/results.html#fig-3">Figure 3</a> and <a href="/results.html#fig-4">Figure 4</a> show a similar curve for the average amount of worlds per day. The possible worlds does not always reach 1 because the game can end when the godfather is killed, while the agents left might still not be sure about the roles of the remaining town agents. Furthermore, both lines flatten around day 5, meaning that games finish on day 5 on average, with or without using axioms. However, we did see that the town win rate increases significantly when axioms are used as opposed to no axioms are used.</p>
+
+        <p>The difference in win rate is likely due to 1v1 scenario with the mayor and the godfather discussed earlier, which also falls in line with the findings that the mayor is a strong town role. However, it could also be due the fact that for example the lookout will be less likely to visit the godfather when it knows who the godfather is, in turn being more likely to visit the veteran on alert and being killed. Thus, the game would reduce faster to the point of a 1v1 between the godfather and the mayor or veteran, in which case the town has a high chance of winning when axioms are used.</p>
+
+        <h2>Future Work</h2>
+        <p>In future work we may consider adding more agents such as the Escort, the Vigilante and the Mafioso for example. Initially we did consider having these however they complicated our axioms to a level that we believed might render the project unfeasible, and thus we removed them.</p>
+
+        <p>Additionally with a deeper understanding of the logic of lying it may be interesting to see the effect that lies would have on the overall simulation of the game specifically in terms of the rates of each group.</p>
+
+        <p>It may also be interesting to design alternative methods by which agents such as the mayor and the veteran would activate their special abilities rather than making use of simple probability and First-order knowledge. For example it may be prudent of the of the mayor to expose himself, as he is one of the few agents that is able to do so, and then the godfather would be more likely to target him, and knowing this the lookout could observe him to determine who the godfather is. Making use of this strategy the Doctor could also go to the mayor to protect him and this leaves the lookout with two possible agents one of which is the godfather and one of which is the Doctor. Strategies such as this would balloon the complexity of our projects However if they could be implemented we leave they would have interesting effects on the overall simulation.
+        </p>
+
+        <p>It may also be interesting to investigate alternative means of measuring the simulation such as proportion of knowledge received from other agents to knowledge inferred.</p>
           
       </div>
 
